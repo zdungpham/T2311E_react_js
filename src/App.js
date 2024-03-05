@@ -22,10 +22,22 @@ function App() {
       qty: 0
    }
   ];
-  const ns = [
+  const ns =[
     {
       name: "Home"
-    }
+    },
+    {
+      name: "Category"
+    },
+    {
+      name: "Product"
+    },
+    {
+      name: "Cart"
+    },
+    {
+      name: "Login"
+    },
   ]
   return (
     <div className="App">
@@ -38,11 +50,13 @@ function App() {
          </button>
          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
            <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="#">Category</a>
-            <a class="nav-link" href="#">Product</a>
-            <a class="nav-link" href="#">Cart</a>
-            <Nav nav={ns}/>
+            {//vong lap 
+              ns.map(
+                (e,i)=>{
+                  return <Nav key={i} nav={e}/>
+                }
+              )
+            }
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
            </div>
           </div>

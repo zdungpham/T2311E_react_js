@@ -1,23 +1,66 @@
 import logo from './logo.svg';
 import './App.css';
+import Product from './component/common/Product';
+import Nav from './component/common/Nav';
 
 function App() {
+  //jsx
+  const ps = [
+    {
+      name: "Iphone 15 pro max",
+      price: 1200,
+      qty: 1
+   },
+   {
+      name: "Iphone 14 pro max",
+      price: 1100,
+      qty: 10
+    },
+    {
+      name: "Iphone 13",
+      price: 1000,
+      qty: 0
+   }
+  ];
+  const ns = [
+    {
+      name: "Home"
+    }
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+         <a class="navbar-brand" href="#">Navbar</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+           <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Category</a>
+            <a class="nav-link" href="#">Product</a>
+            <a class="nav-link" href="#">Cart</a>
+            <Nav nav={ns}/>
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+           </div>
+          </div>
+        </div>
+      </nav>
+        
+        <div className='container'>
+          <div className='row'>
+            {//vong lap 
+              ps.map(
+                (e,i)=>{
+                  return <Product key={i} item={e}/>
+                }
+              )
+            }
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
